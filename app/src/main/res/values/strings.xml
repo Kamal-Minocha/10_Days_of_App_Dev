@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">10 Days of App Dev</string>
+    <string name= "day_1_title">Setting Up Android Studio</string>
+    <string name="day_1_description">Installed Android Studio and set up my first project.</string>
+    <string name="day_2_title">Learning Kotlin Basics</string>
+    <string name="day_2_description">Understood variables, functions, and conditionals in Kotlin.</string>
+    <string name="day_3_title">Understanding Jetpack Compose</string>
+    <string name="day_3_description">What @Composable functions are and how they build UI.</string>
+    <string name="day_4_title">Working with Modifiers</string>
+    <string name="day_4_description">Used padding, size, background, and alignment modifiers.</string>
+    <string name="day_5_title">Adding Images</string>
+    <string name="day_5_description">Imported local images and used Image composable.</string>
+    <string name="day_6_title">Birthday Greeting App</string>
+    <string name="day_6_description">Created a simple birthday greeting app using Text, Image, Row and Column composables.</string>
+    <string name="day_7_title">Buttons and OnClick Events</string>
+    <string name="day_7_description">Used Button and implemented click listeners.</string>
+    <string name="day_8_title">Understanding State</string>
+    <string name="day_8_description">Understood the difference between mutable and immutable state.</string>
+    <string name="day_9_title">Building the Tip Calculator App</string>
+    <string name="day_9_description">Worked with TextField, Input validation, and state.</string>
+    <string name="day_10_title">Lists in Compose</string>
+    <string name="day_10_description">Created and displayed lists in Compose.</string>
+</resources>

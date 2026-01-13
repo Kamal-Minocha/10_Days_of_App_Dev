@@ -1,5 +1,6 @@
 package com.example.a10daysofappdev.ui.theme
 
+import android.R.attr.onClick
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -37,14 +38,16 @@ import com.example.compose.AppTheme
 @Composable
 fun DayCard(
     day: Day,
+    isExpanded: Boolean,
+    onCardClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
-    var expanded by remember { mutableStateOf(false) }
+//    var expanded by remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier
-            .clickable{ expanded = !expanded }
+            .clickable(onClick = onCardClick)
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
@@ -62,14 +65,14 @@ fun DayCard(
             Image(
                 painter = painterResource(day.image),
                 contentDescription = null,
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp)
                     .clip(RoundedCornerShape(8.dp)),
                 contentScale = ContentScale.Crop
             )
 
-            AnimatedVisibility(visible = expanded) {
+            AnimatedVisibility(visible = isExpanded) {
                 Text(
                     text = stringResource(day.description), // Assuming Day data class has a description field
                     style = MaterialTheme.typography.bodyLarge,
@@ -86,6 +89,9 @@ fun DayList(
     days: List<Day>,
     modifier: Modifier = Modifier
 ) {
+
+    var expandedDay by remember { mutableStateOf<Int?>(null) }
+
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -93,7 +99,14 @@ fun DayList(
             .fillMaxSize()
     ) {
         items(days) { day ->
-            DayCard(day = day)
+            DayCard(day = day,
+                isExpanded = (expandedDay == day.day),
+                onCardClick = {
+                    expandedDay = if (expandedDay == day.day) { null }
+                    else { day.day }
+                },
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
         }
     }
 }
